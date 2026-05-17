@@ -6,12 +6,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+---
+
+## [1.1.0] — 2026-05-17
+
 ### Added
 - Multi-platform install instructions (macOS, Linux, Windows / WSL2)
 - PowerShell one-liner for Windows users without `git`
 - One-shot `curl` install for macOS/Linux without `git`
-- Shields.io badges in README header (License, Ghostty, release, stars, last commit)
-- `scripts/demo.sh` — four-scene screenshot helper for the README
+- Shields.io badges in README header (License, Ghostty, CI, release, stars, last commit)
+- `scripts/demo.sh` — four-scene screenshot helper
+- `scripts/validate.sh` — palette/shader/port validation script
+- GitHub Actions CI workflow (`.github/workflows/validate.yml`)
+- `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`
+- `SECURITY.md` with private vulnerability-report channel
+- GitHub issue templates (bug, palette-port) + PR template
+- `.github/FUNDING.yml` placeholder (commented-out)
+- `docs/index.html` — static GitHub Pages preview
+- Palette ports under `themes/`:
+  - `alacritty.toml`
+  - `kitty.conf`
+  - `wezterm.lua`
+  - `iterm2.itermcolors`
+  - `windows-terminal.json`
+- SPDX license headers on every source file
 
 ---
 
@@ -34,5 +52,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `LICENSE` — MIT
 - `README.md` — install, palette table, shader knobs, compatibility notes
 
-[Unreleased]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/AyoubTadlaoui/atlas-ragnarok/releases/tag/v1.0.0
