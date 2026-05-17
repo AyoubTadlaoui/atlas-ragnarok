@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>atlas-ragnarok — a Ghostty theme</title>
+  <meta name="description" content="Tech-blue thunder above, crimson fire below. A Ghostty terminal theme + storm-fire vignette shader, forged in pure black.">
+  <meta property="og:title" content="atlas-ragnarok">
+  <meta property="og:description" content="Tech-blue thunder above, crimson fire below. A Ghostty terminal theme.">
+  <meta property="og:type" content="website">
+  <style>
+    :root {
+      --bg: #000000;
+      --fg: #ffffff;
+      --blue: #3b82f6;
+      --blue-dark: #2563eb;
+      --blue-bright: #60a5fa;
+      --blue-pale: #93c5fd;
+      --peppermint: #99ffe4;
+      --gray: #a0a0a0;
+      --gray-dim: #505050;
+      --crimson: #ff8080;
+      --selection: #1e3a5f;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { background: var(--bg); }
+    body {
+      font-family: 'SF Mono', 'Menlo', 'Monaco', monospace;
+      color: var(--fg);
+      line-height: 1.5;
+      min-height: 100vh;
+      padding: 4rem 2rem;
+      background:
+        radial-gradient(ellipse at top, rgba(59, 130, 246, 0.22) 0%, transparent 55%),
+        radial-gradient(ellipse at bottom, rgba(255, 50, 50, 0.18) 0%, transparent 55%),
+        var(--bg);
+    }
+    .container { max-width: 880px; margin: 0 auto; }
+
+    h1 {
+      font-size: 2.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .tagline {
+      color: var(--gray);
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+    }
+    .tagline strong { color: var(--blue); font-weight: 400; }
+    .tagline em { color: var(--crimson); font-style: normal; }
+
+    .code-preview {
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid var(--gray-dim);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 3rem;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
+    .code-preview .keyword { color: var(--gray); }
+    .code-preview .function { color: var(--blue); }
+    .code-preview .number { color: var(--blue-bright); }
+    .code-preview .string { color: var(--peppermint); }
+    .code-preview .comment { color: var(--gray-dim); font-style: italic; }
+    .code-preview .error { color: var(--crimson); }
+    .code-preview .var { color: var(--fg); }
+    .code-preview .punc { color: var(--gray); }
+
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 3rem;
+    }
+    .swatch {
+      aspect-ratio: 1;
+      border-radius: 4px;
+      display: flex;
+      align-items: flex-end;
+      padding: 0.4rem;
+      font-size: 0.65rem;
+      color: var(--fg);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+    }
+
+    .install {
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid var(--gray-dim);
+      border-radius: 8px;
+      padding: 1.25rem;
+      font-size: 0.85rem;
+      margin-bottom: 2rem;
+    }
+    .install code { color: var(--peppermint); }
+
+    .footer {
+      color: var(--gray-dim);
+      font-size: 0.85rem;
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--gray-dim);
+    }
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { color: var(--blue-bright); text-decoration: underline; }
+    ::selection { background: var(--selection); color: var(--fg); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>atlas-ragnarok</h1>
+    <p class="tagline">
+      <strong>Tech-blue thunder above.</strong>
+      <em>Crimson fire below.</em>
+      Pure black through the middle.
+    </p>
+
+    <pre class="code-preview"><code><span class="comment">// atlas-ragnarok — the palette in action</span>
+
+<span class="keyword">const</span> <span class="var">storm</span> <span class="punc">=</span> <span class="function">forge</span><span class="punc">({</span>
+  <span class="var">background</span><span class="punc">:</span> <span class="string">'#000000'</span><span class="punc">,</span>
+  <span class="var">thunder</span><span class="punc">:</span> <span class="string">'#3b82f6'</span><span class="punc">,</span>  <span class="comment">// top edges</span>
+  <span class="var">ember</span><span class="punc">:</span>   <span class="string">'#ff8080'</span><span class="punc">,</span>  <span class="comment">// bottom edges</span>
+  <span class="var">intensity</span><span class="punc">:</span> <span class="number">0.95</span><span class="punc">,</span>
+<span class="punc">});</span>
+
+<span class="keyword">if</span> <span class="punc">(</span><span class="var">storm</span><span class="punc">.</span><span class="var">isStable</span><span class="punc">())</span> <span class="punc">{</span>
+  <span class="function">deploy</span><span class="punc">(</span><span class="var">storm</span><span class="punc">);</span>
+<span class="punc">}</span> <span class="keyword">else</span> <span class="punc">{</span>
+  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="error">Error</span><span class="punc">(</span><span class="string">'palette diverged'</span><span class="punc">);</span>
+<span class="punc">}</span></code></pre>
+
+    <div class="palette-grid">
+      <div class="swatch" style="background:#000000;border:1px solid #333">#000000</div>
+      <div class="swatch" style="background:#ff8080;color:#000">#ff8080</div>
+      <div class="swatch" style="background:#99ffe4;color:#000">#99ffe4</div>
+      <div class="swatch" style="background:#2563eb">#2563eb</div>
+      <div class="swatch" style="background:#a0a0a0;color:#000">#a0a0a0</div>
+      <div class="swatch" style="background:#3b82f6">#3b82f6</div>
+      <div class="swatch" style="background:#99ffe4;color:#000">#99ffe4</div>
+      <div class="swatch" style="background:#ffffff;color:#000">#ffffff</div>
+      <div class="swatch" style="background:#505050">#505050</div>
+      <div class="swatch" style="background:#ff9999;color:#000">#ff9999</div>
+      <div class="swatch" style="background:#b3ffe4;color:#000">#b3ffe4</div>
+      <div class="swatch" style="background:#60a5fa">#60a5fa</div>
+      <div class="swatch" style="background:#b0b0b0;color:#000">#b0b0b0</div>
+      <div class="swatch" style="background:#93c5fd;color:#000">#93c5fd</div>
+      <div class="swatch" style="background:#99ffe4;color:#000">#99ffe4</div>
+      <div class="swatch" style="background:#ffffff;color:#000">#ffffff</div>
+    </div>
+
+    <div class="install">
+      <strong>Install:</strong><br>
+      <code>git clone https://github.com/AyoubTadlaoui/atlas-ragnarok.git</code><br>
+      <code>cp atlas-ragnarok/atlas-ragnarok.{conf,glsl} ~/.config/ghostty/themes/</code>
+    </div>
+
+    <div class="footer">
+      MIT &copy; 2026 Atlas Kaisar &middot;
+      <a href="https://github.com/AyoubTadlaoui/atlas-ragnarok">github.com/AyoubTadlaoui/atlas-ragnarok</a>
+    </div>
+  </div>
+</body>
+</html>
