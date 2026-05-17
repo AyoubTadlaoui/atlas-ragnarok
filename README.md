@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-3b82f6.svg?style=flat-square&labelColor=000000)](LICENSE)
 [![Made for Ghostty](https://img.shields.io/badge/made%20for-Ghostty-3b82f6?style=flat-square&labelColor=000000)](https://ghostty.org)
+[![CI](https://img.shields.io/github/actions/workflow/status/AyoubTadlaoui/atlas-ragnarok/validate.yml?branch=main&style=flat-square&label=CI&color=99ffe4&labelColor=000000)](https://github.com/AyoubTadlaoui/atlas-ragnarok/actions/workflows/validate.yml)
 [![GitHub release](https://img.shields.io/github/v/release/AyoubTadlaoui/atlas-ragnarok?style=flat-square&color=99ffe4&labelColor=000000)](https://github.com/AyoubTadlaoui/atlas-ragnarok/releases)
 [![GitHub stars](https://img.shields.io/github/stars/AyoubTadlaoui/atlas-ragnarok?style=flat-square&color=ff8080&labelColor=000000)](https://github.com/AyoubTadlaoui/atlas-ragnarok/stargazers)
 [![Last commit](https://img.shields.io/github/last-commit/AyoubTadlaoui/atlas-ragnarok?style=flat-square&color=a0a0a0&labelColor=000000)](https://github.com/AyoubTadlaoui/atlas-ragnarok/commits/main)
