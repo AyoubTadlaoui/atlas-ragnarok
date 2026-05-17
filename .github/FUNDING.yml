@@ -1,0 +1,11 @@
+# GitHub Funding configuration — surfaces a "Sponsor" button on the repo header.
+# Uncomment and fill in any of these once a funding account is set up.
+
+# github: AyoubTadlaoui                  # GitHub Sponsors username
+# ko_fi: AyoubTadlaoui                   # Ko-fi handle
+# buy_me_a_coffee: AyoubTadlaoui         # Buy Me a Coffee handle
+# custom: ['https://yoursite.example/']  # Any custom URL(s)
+
+# Note: this file is intentionally inactive until a funding account is set up.
+# Once you uncomment a line above, GitHub renders a Sponsor button on the repo
+# page automatically — no other configuration needed.
