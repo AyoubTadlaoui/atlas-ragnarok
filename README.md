@@ -19,7 +19,8 @@ of pure-black `#000000`.
 
 ## Install
 
-### 1. Drop the two files into Ghostty's config directory
+<details open>
+<summary><b>macOS</b></summary>
 
 ```bash
 git clone https://github.com/AyoubTadlaoui/atlas-ragnarok.git
@@ -28,18 +29,96 @@ cd atlas-ragnarok
 mkdir -p ~/.config/ghostty/themes ~/.config/ghostty/shaders
 cp atlas-ragnarok.conf ~/.config/ghostty/themes/
 cp atlas-ragnarok.glsl ~/.config/ghostty/shaders/
+
+# Activate it
+echo 'config-file = ~/.config/ghostty/themes/atlas-ragnarok.conf' \
+  >> "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
 ```
 
-### 2. Activate it
+Reload with `Cmd+Shift+,` or restart Ghostty.
 
-Open `~/Library/Application Support/com.mitchellh.ghostty/config.ghostty`
-(macOS) or `~/.config/ghostty/config` (Linux) and add:
+</details>
 
+<details>
+<summary><b>Linux</b></summary>
+
+```bash
+git clone https://github.com/AyoubTadlaoui/atlas-ragnarok.git
+cd atlas-ragnarok
+
+mkdir -p ~/.config/ghostty/themes ~/.config/ghostty/shaders
+cp atlas-ragnarok.conf ~/.config/ghostty/themes/
+cp atlas-ragnarok.glsl ~/.config/ghostty/shaders/
+
+# Activate it
+echo 'config-file = ~/.config/ghostty/themes/atlas-ragnarok.conf' \
+  >> ~/.config/ghostty/config
 ```
-config-file = ~/.config/ghostty/themes/atlas-ragnarok.conf
+
+Reload with `Ctrl+Shift+,` or restart Ghostty.
+
+</details>
+
+<details>
+<summary><b>Windows (WSL2)</b></summary>
+
+Ghostty doesn't yet ship a native Windows build. Run it under WSL2 with an
+X-server (WSLg on Windows 11 handles this automatically).
+
+```bash
+# Inside your WSL2 shell
+git clone https://github.com/AyoubTadlaoui/atlas-ragnarok.git
+cd atlas-ragnarok
+
+mkdir -p ~/.config/ghostty/themes ~/.config/ghostty/shaders
+cp atlas-ragnarok.conf ~/.config/ghostty/themes/
+cp atlas-ragnarok.glsl ~/.config/ghostty/shaders/
+
+echo 'config-file = ~/.config/ghostty/themes/atlas-ragnarok.conf' \
+  >> ~/.config/ghostty/config
 ```
 
-Reload Ghostty with `Cmd+Shift+,` (macOS) or restart it.
+Restart Ghostty in WSLg. If you're on Windows 10 (no WSLg), install
+[VcXsrv](https://sourceforge.net/projects/vcxsrv/) and set `DISPLAY` in
+your WSL profile.
+
+> Want the palette in **Windows Terminal** or **WezTerm** instead?
+> See [Compatibility](#compatibility) — the `palette = N=#hex` lines
+> map cleanly to either format. The vignette shader is Ghostty-only.
+
+</details>
+
+<details>
+<summary><b>PowerShell one-liner (downloads without git)</b></summary>
+
+For Windows users who want the raw files without `git`:
+
+```powershell
+$dest = "$HOME\.config\ghostty"
+New-Item -ItemType Directory -Force -Path "$dest\themes","$dest\shaders" | Out-Null
+Invoke-WebRequest "https://raw.githubusercontent.com/AyoubTadlaoui/atlas-ragnarok/main/atlas-ragnarok.conf" -OutFile "$dest\themes\atlas-ragnarok.conf"
+Invoke-WebRequest "https://raw.githubusercontent.com/AyoubTadlaoui/atlas-ragnarok/main/atlas-ragnarok.glsl" -OutFile "$dest\shaders\atlas-ragnarok.glsl"
+Add-Content "$dest\config" "config-file = ~/.config/ghostty/themes/atlas-ragnarok.conf"
+```
+
+</details>
+
+<details>
+<summary><b>One-shot curl (macOS / Linux, no git)</b></summary>
+
+```bash
+mkdir -p ~/.config/ghostty/themes ~/.config/ghostty/shaders
+curl -fsSL https://raw.githubusercontent.com/AyoubTadlaoui/atlas-ragnarok/main/atlas-ragnarok.conf \
+  -o ~/.config/ghostty/themes/atlas-ragnarok.conf
+curl -fsSL https://raw.githubusercontent.com/AyoubTadlaoui/atlas-ragnarok/main/atlas-ragnarok.glsl \
+  -o ~/.config/ghostty/shaders/atlas-ragnarok.glsl
+
+CONFIG="$HOME/.config/ghostty/config"
+[[ "$OSTYPE" == "darwin"* ]] && CONFIG="$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
+echo 'config-file = ~/.config/ghostty/themes/atlas-ragnarok.conf' >> "$CONFIG"
+```
+
+</details>
 
 ---
 
