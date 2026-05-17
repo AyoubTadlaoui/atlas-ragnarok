@@ -190,9 +190,11 @@ Drop captures into `screenshots/` and they're live in this README on push.
 ## Compatibility
 
 - **Ghostty** ≥ 1.0 — full support (theme + shader)
+- **Alacritty** — palette ported in [`themes/alacritty.toml`](themes/alacritty.toml).
+  Import via `general.import = ["~/.config/alacritty/themes/atlas-ragnarok.toml"]`.
 - **Other terminals** — the `palette = N=#hex` lines map cleanly to iTerm2 /
-  Alacritty / Kitty / WezTerm palette format; port the colors but skip the
-  shader (most other terminals don't run GLSL).
+  Kitty / WezTerm palette format; port the colors but skip the shader (most
+  other terminals don't run GLSL). PRs welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 

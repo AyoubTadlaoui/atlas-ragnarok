@@ -1,0 +1,40 @@
+# atlas-ragnarok — Alacritty palette port
+#
+# Import this file in ~/.config/alacritty/alacritty.toml:
+#   [general]
+#   import = ["~/.config/alacritty/themes/atlas-ragnarok.toml"]
+#
+# The vignette shader (atlas-ragnarok.glsl) is Ghostty-exclusive —
+# Alacritty doesn't support custom GLSL. The ANSI palette ports 1:1.
+
+[colors.primary]
+background = "#000000"
+foreground = "#ffffff"
+
+[colors.cursor]
+text   = "#ffffff"
+cursor = "#3b82f6"
+
+[colors.selection]
+text       = "#ffffff"
+background = "#1e3a5f"
+
+[colors.normal]
+black   = "#000000"
+red     = "#ff8080"
+green   = "#99ffe4"
+yellow  = "#2563eb"
+blue    = "#a0a0a0"
+magenta = "#3b82f6"
+cyan    = "#99ffe4"
+white   = "#ffffff"
+
+[colors.bright]
+black   = "#505050"
+red     = "#ff9999"
+green   = "#b3ffe4"
+yellow  = "#60a5fa"
+blue    = "#b0b0b0"
+magenta = "#93c5fd"
+cyan    = "#99ffe4"
+white   = "#ffffff"
