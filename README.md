@@ -192,8 +192,12 @@ Drop captures into `screenshots/` and they're live in this README on push.
 - **Ghostty** ≥ 1.0 — full support (theme + shader)
 - **Alacritty** — palette ported in [`themes/alacritty.toml`](themes/alacritty.toml).
   Import via `general.import = ["~/.config/alacritty/themes/atlas-ragnarok.toml"]`.
-- **Other terminals** — the `palette = N=#hex` lines map cleanly to iTerm2 /
-  Kitty / WezTerm palette format; port the colors but skip the shader (most
+- **Kitty** — palette ported in [`themes/kitty.conf`](themes/kitty.conf).
+  Drop into `~/.config/kitty/` and `include atlas-ragnarok.conf` from your `kitty.conf`.
+- **WezTerm** — palette ported in [`themes/wezterm.lua`](themes/wezterm.lua).
+  Drop into `~/.config/wezterm/colors/`, then reference via `color_scheme = 'atlas-ragnarok'`.
+- **Other terminals** — the ANSI palette maps cleanly to iTerm2 /
+  Windows Terminal format; port the colors but skip the shader (most
   other terminals don't run GLSL). PRs welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
