@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: 2026 Atlas Kaisar
 # atlas-ragnarok screenshot helper — runs a sequence of "badass" terminal
 # scenes you can capture for the README. Each scene is its own `clear`-ed
 # screen so you can take separate shots without overlap.

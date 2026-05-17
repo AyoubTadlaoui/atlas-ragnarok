@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: MIT
+# SPDX-FileCopyrightText: 2026 Atlas Kaisar
 # Validate that every theme file declares all 16 ANSI palette slots
 # and that every color is a valid 6-digit hex code.
 #

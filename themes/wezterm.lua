@@ -1,3 +1,5 @@
+-- SPDX-License-Identifier: MIT
+-- SPDX-FileCopyrightText: 2026 Atlas Kaisar
 -- atlas-ragnarok — WezTerm palette port
 --
 -- Install:
