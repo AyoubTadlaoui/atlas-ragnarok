@@ -1,5 +1,7 @@
 # atlas-ragnarok
 
+![atlas-ragnarok hero](screenshots/01-hero-vignette.png)
+
 > Tech-blue thunder above. Crimson fire below. Pure black through the middle.
 > The end-of-days terminal theme for [Ghostty](https://ghostty.org).
 
@@ -78,6 +80,25 @@ vec3 red_tint     = vec3(0.220, 0.014, 0.028);  // raise for more fire
 float top_only    = smoothstep(0.65, 0.85, 1.0 - uv.y);  // wider blue band
 float bottom_only = smoothstep(0.65, 0.85, uv.y);        // wider red band
 ```
+
+---
+
+## Capturing your own screenshots
+
+A small demo script ships in `scripts/demo.sh` — it walks through four
+screen-ready scenes (the shader source under `bat`, a colorful `git log
+--graph`, a fake `cargo` build with errors + warnings + pass, and a
+`tree` of the repo). Run it and screenshot each scene:
+
+```bash
+# auto-advance every 4 seconds
+bash scripts/demo.sh
+
+# or press <enter> to advance manually
+bash scripts/demo.sh manual
+```
+
+Drop captures into `screenshots/` and they're live in this README on push.
 
 ---
 
