@@ -1,0 +1,40 @@
+name: Palette port request
+description: Request a port to another terminal emulator
+title: "[port] "
+labels: ["enhancement", "port"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for requesting a palette port to a terminal that doesn't yet
+        have one under `themes/`. The vignette shader is Ghostty-only — ports
+        are palette-only unless the target supports GLSL/WGSL fragment shaders.
+
+  - type: input
+    id: terminal
+    attributes:
+      label: Target terminal
+      placeholder: "e.g., Tabby, Konsole, Termius, foot..."
+    validations:
+      required: true
+
+  - type: input
+    id: terminal-version
+    attributes:
+      label: Terminal version (if known)
+      placeholder: "1.2.3"
+
+  - type: input
+    id: format-docs
+    attributes:
+      label: Link to the terminal's color-config docs
+      description: So whoever picks this up knows exactly what the schema looks like
+      placeholder: "https://..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything else? E.g., does this terminal support custom shaders?

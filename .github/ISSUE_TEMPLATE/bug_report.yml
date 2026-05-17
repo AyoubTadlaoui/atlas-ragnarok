@@ -1,0 +1,65 @@
+name: Bug report
+description: Report a problem with the theme or shader
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Before opening, please confirm
+        the issue happens with the latest commit on `main` and an up-to-date Ghostty.
+
+  - type: input
+    id: ghostty-version
+    attributes:
+      label: Ghostty version
+      description: Output of `ghostty --version` (or "WezTerm 20240..." / "Alacritty 0.13..." etc. for ports)
+      placeholder: "ghostty 1.0.1"
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: "macOS 14.5 / Ubuntu 24.04 / Windows 11 (WSL2 Debian 12)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you see, and what did you expect to see instead?
+      placeholder: "The cursor is invisible on the cursor-line of vim..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: How to reproduce
+      description: Minimal steps to reproduce. If shader-related, mention GPU/driver.
+      placeholder: |
+        1. Install with `bash install.sh`
+        2. Open Ghostty
+        3. `vim file.py`
+        4. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot (if visual)
+      description: Drag-and-drop an image into this box if the issue is visual.
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: I'm on the latest commit of `main`
+          required: true
+        - label: I've searched existing issues
+          required: true
