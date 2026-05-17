@@ -196,9 +196,11 @@ Drop captures into `screenshots/` and they're live in this README on push.
   Drop into `~/.config/kitty/` and `include atlas-ragnarok.conf` from your `kitty.conf`.
 - **WezTerm** — palette ported in [`themes/wezterm.lua`](themes/wezterm.lua).
   Drop into `~/.config/wezterm/colors/`, then reference via `color_scheme = 'atlas-ragnarok'`.
-- **Other terminals** — the ANSI palette maps cleanly to iTerm2 /
-  Windows Terminal format; port the colors but skip the shader (most
-  other terminals don't run GLSL). PRs welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
+- **iTerm2** — palette ported in [`themes/iterm2.itermcolors`](themes/iterm2.itermcolors).
+  Double-click the file in Finder to import as a Color Preset.
+- **Windows Terminal** — palette ported in [`themes/windows-terminal.json`](themes/windows-terminal.json).
+  Add the object to the `schemes` array in `settings.json`, then set `"colorScheme": "atlas-ragnarok"` on a profile.
+- **Other terminals** — PRs welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 

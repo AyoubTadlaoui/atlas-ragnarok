@@ -1,0 +1,27 @@
+{
+  "_comment_": "atlas-ragnarok — Windows Terminal palette port. Add this object to the 'schemes' array in your Windows Terminal settings.json, then reference it from a profile via 'colorScheme': 'atlas-ragnarok'. The Ghostty vignette shader has no Windows Terminal equivalent.",
+  "name": "atlas-ragnarok",
+
+  "background":           "#000000",
+  "foreground":           "#FFFFFF",
+  "cursorColor":          "#3B82F6",
+  "selectionBackground":  "#1E3A5F",
+
+  "black":         "#000000",
+  "red":           "#FF8080",
+  "green":         "#99FFE4",
+  "yellow":        "#2563EB",
+  "blue":          "#A0A0A0",
+  "purple":        "#3B82F6",
+  "cyan":          "#99FFE4",
+  "white":         "#FFFFFF",
+
+  "brightBlack":   "#505050",
+  "brightRed":     "#FF9999",
+  "brightGreen":   "#B3FFE4",
+  "brightYellow":  "#60A5FA",
+  "brightBlue":    "#B0B0B0",
+  "brightPurple":  "#93C5FD",
+  "brightCyan":    "#99FFE4",
+  "brightWhite":   "#FFFFFF"
+}
