@@ -96,7 +96,7 @@ Restart Ghostty in WSLg. If you're on Windows 10 (no WSLg), install
 your WSL profile.
 
 > Want the palette in **Windows Terminal** or **WezTerm** instead?
-> See [Compatibility](#compatibility) — the `palette = N=#hex` lines
+> See [Terminals](#terminals) — the `palette = N=#hex` lines
 > map cleanly to either format. The vignette shader is Ghostty-only.
 
 </details>
@@ -221,7 +221,27 @@ sh screenshots/gen.sh                                          # 02-demo.{webp,m
 
 ---
 
-## Compatibility
+## Code editors
+
+Atlas Ragnarok ships as a full color theme to every major editor — see
+[**EDITORS.md**](EDITORS.md) for the install + publish matrix.
+
+| Editor | Install | Source |
+|---|---|---|
+| **VS Code / Cursor / VSCodium** | `code --install-extension AyoubTadlaoui.atlas-ragnarok` | [`editors/vscode/`](editors/vscode/) |
+| **Zed** | `zed: install extension atlas-ragnarok` | [`editors/zed/`](editors/zed/) |
+| **JetBrains** (IntelliJ, PyCharm, GoLand, WebStorm, Rider, RustRover, CLion, RubyMine, PhpStorm, DataGrip, Android Studio) | Plugins → Marketplace → Atlas Ragnarok | [`editors/jetbrains/`](editors/jetbrains/) |
+| **Neovim** | `{ "AyoubTadlaoui/atlas-ragnarok", rtp = "editors/neovim" }` | [`editors/neovim/`](editors/neovim/) |
+| **Vim** | `Plug 'AyoubTadlaoui/atlas-ragnarok', { 'rtp': 'editors/vim' }` | [`editors/vim/`](editors/vim/) |
+| **Helix** | `cp editors/helix/atlas-ragnarok.toml ~/.config/helix/themes/` | [`editors/helix/`](editors/helix/) |
+| **Sublime Text 4** | Drop the `.sublime-color-scheme` into `Packages/User/` | [`editors/sublime/`](editors/sublime/) |
+
+Full syntax + UI coverage in every port: comments, strings, numbers, keywords,
+functions, types, tags, variables, properties, decorators, markdown, diff,
+git decorations, debugger, terminal pane, and Treesitter / LSP semantic tokens
+where supported.
+
+## Terminals
 
 - **Ghostty** ≥ 1.0 — full support (theme + shader)
 - **Alacritty** — palette ported in [`themes/alacritty.toml`](themes/alacritty.toml).

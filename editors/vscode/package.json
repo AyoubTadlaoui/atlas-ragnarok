@@ -1,0 +1,36 @@
+{
+  "name": "atlas-ragnarok",
+  "displayName": "Atlas Ragnarok",
+  "description": "Tech-blue thunder above, crimson fire below, pure black through the middle. The end-of-days color theme for VS Code, Cursor, and VSCodium.",
+  "version": "1.0.0",
+  "publisher": "AyoubTadlaoui",
+  "license": "MIT",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": ["Themes"],
+  "keywords": ["theme", "dark", "blue", "thunder", "ragnarok", "atlas", "minimal", "vesper", "ghostty"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AyoubTadlaoui/atlas-ragnarok.git",
+    "directory": "editors/vscode"
+  },
+  "homepage": "https://github.com/AyoubTadlaoui/atlas-ragnarok",
+  "bugs": {
+    "url": "https://github.com/AyoubTadlaoui/atlas-ragnarok/issues"
+  },
+  "galleryBanner": {
+    "color": "#000000",
+    "theme": "dark"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Atlas Ragnarok",
+        "uiTheme": "vs-dark",
+        "path": "./themes/atlas-ragnarok-color-theme.json"
+      }
+    ]
+  }
+}

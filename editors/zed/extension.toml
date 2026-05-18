@@ -1,0 +1,7 @@
+id = "atlas-ragnarok"
+name = "Atlas Ragnarok"
+version = "1.0.0"
+schema_version = 1
+description = "Tech-blue thunder above, crimson fire below, pure black through the middle."
+authors = ["Atlas Kaisar <atlas.kaisar@icloud.com>"]
+repository = "https://github.com/AyoubTadlaoui/atlas-ragnarok"

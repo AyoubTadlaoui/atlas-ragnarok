@@ -1,0 +1,34 @@
+<idea-plugin>
+  <id>com.atlaskaisar.atlas-ragnarok</id>
+  <name>Atlas Ragnarok</name>
+  <vendor email="atlas.kaisar@icloud.com" url="https://github.com/AyoubTadlaoui">Atlas Kaisar</vendor>
+
+  <description><![CDATA[
+    <h2>Atlas Ragnarok</h2>
+    <p>Tech-blue thunder above. Crimson fire below. Pure black through the middle.</p>
+    <p>The end-of-days color scheme for IntelliJ-platform IDEs (IntelliJ IDEA, PyCharm,
+    GoLand, WebStorm, Rider, RustRover, CLion, RubyMine, PhpStorm, DataGrip, Android Studio).</p>
+    <p>Built on the syntactic structure of Vesper, with the warm-accent family remapped
+    to a Tailwind blue gradient and a pure-black background.</p>
+    <p>Activate via <b>Settings → Editor → Color Scheme → Atlas Ragnarok</b>.</p>
+    <p><a href="https://github.com/AyoubTadlaoui/atlas-ragnarok">Source &amp; ports for other editors</a></p>
+  ]]></description>
+
+  <change-notes><![CDATA[
+    <h3>1.0.0</h3>
+    <ul>
+      <li>Initial release.</li>
+      <li>Full editor color scheme: keywords, types, strings, numbers, comments, doc comments, brackets, operators, identifiers, tags, attributes, decorators.</li>
+      <li>VCS file-status colors aligned with the palette (added/modified/deleted/ignored/conflict).</li>
+      <li>Bracket-match + identifier-under-caret highlights tuned for OLED contrast.</li>
+    </ul>
+  ]]></change-notes>
+
+  <idea-version since-build="241" />
+
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <bundledColorScheme path="/colors/atlas-ragnarok" />
+  </extensions>
+</idea-plugin>

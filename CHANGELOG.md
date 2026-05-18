@@ -8,6 +8,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Editor distribution.** Full color theme ports under [`editors/`](editors/) for
+  VS Code (+ Cursor / VSCodium / Open VSX), Zed, JetBrains (IntelliJ family +
+  Android Studio), Neovim, classic Vim, Helix, and Sublime Text 4. Single
+  source-of-truth palette at [`editors/palette.json`](editors/palette.json) so
+  every port stays in sync. See [EDITORS.md](EDITORS.md) for the install +
+  publish matrix.
+- **`.github/workflows/publish-editors.yml`** — fans out a single `v*` tag to
+  VS Code Marketplace, Open VSX, and JetBrains Marketplace. Missing tokens skip
+  the corresponding job cleanly; Zed / Helix / Sublime / Ghostty go through
+  human-reviewed PRs to upstream repos and are intentionally not automated.
+- **`editors/ghostty-upstream/`** — packaged submission for
+  [iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes),
+  which Ghostty bundles via submodule. One PR gets the palette to Ghostty,
+  Alacritty, Kitty, WezTerm, Hyper, Konsole, and ~30 other terminals.
 - `screenshots/02-demo.webp` — animated WebP showing all four `scripts/demo.sh`
   scenes (shader code under `bat`, `git log --graph`, stubbed `cargo` build with
   warnings + errors + green tests, tree + palette listing) rendered in the

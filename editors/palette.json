@@ -1,0 +1,163 @@
+{
+  "$schema": "./palette.schema.json",
+  "name": "atlas-ragnarok",
+  "displayName": "Atlas Ragnarok",
+  "description": "Tech-blue thunder above, crimson fire below, pure black through the middle.",
+  "author": "Atlas Kaisar",
+  "version": "1.0.0",
+  "type": "dark",
+
+  "colors": {
+    "_comment": "Single source of truth. Every editor generator reads from here.",
+
+    "bg":            "#000000",
+    "bg_alt":        "#0a0a0a",
+    "bg_subtle":     "#101010",
+    "bg_selection":  "#1e3a5f",
+    "bg_line":       "#0b1220",
+
+    "fg":            "#ffffff",
+    "fg_muted":      "#a0a0a0",
+    "fg_subtle":     "#505050",
+    "fg_dim":        "#707070",
+
+    "thunder":       "#3b82f6",
+    "thunder_deep":  "#2563eb",
+    "thunder_bright":"#60a5fa",
+    "thunder_pale":  "#93c5fd",
+    "thunder_glow":  "#1e3a5f",
+
+    "peppermint":    "#99ffe4",
+    "peppermint_alt":"#b3ffe4",
+
+    "crimson":       "#ff8080",
+    "crimson_alt":   "#ff9999",
+    "crimson_deep":  "#380404",
+
+    "gray":          "#a0a0a0",
+    "gray_alt":      "#b0b0b0",
+    "gray_dark":     "#505050"
+  },
+
+  "roles": {
+    "_comment": "Logical roles map editor concepts to palette colors. Generators reference roles, never raw hex.",
+
+    "syntax": {
+      "comment":         "fg_subtle",
+      "keyword":         "gray",
+      "operator":        "gray",
+      "storage":         "gray",
+      "string":          "peppermint",
+      "string_escape":   "peppermint_alt",
+      "number":          "thunder_deep",
+      "boolean":         "thunder_deep",
+      "function":        "thunder",
+      "function_call":   "thunder",
+      "method":          "thunder",
+      "type":            "thunder",
+      "class":           "thunder",
+      "interface":       "thunder",
+      "enum":            "thunder_pale",
+      "variable":        "fg",
+      "parameter":       "fg",
+      "property":        "fg",
+      "constant":        "thunder_bright",
+      "namespace":       "thunder_pale",
+      "tag":             "thunder_deep",
+      "attribute":       "thunder_bright",
+      "punctuation":     "fg_muted",
+      "regexp":          "peppermint",
+      "symbol":          "peppermint",
+      "macro":           "thunder_bright",
+      "annotation":      "thunder_pale",
+      "decorator":       "thunder_pale",
+      "deprecated":      "fg_subtle",
+      "invalid":         "crimson",
+      "error":           "crimson",
+      "warning":         "thunder_deep"
+    },
+
+    "diff": {
+      "added":           "peppermint",
+      "added_bg":        "#062f2f",
+      "removed":         "crimson",
+      "removed_bg":      "#2f0606",
+      "modified":        "thunder_bright",
+      "modified_bg":     "#0a1a2f"
+    },
+
+    "git": {
+      "untracked":       "peppermint",
+      "modified":        "thunder_bright",
+      "deleted":         "crimson",
+      "renamed":         "thunder_pale",
+      "ignored":         "fg_subtle",
+      "conflict":        "crimson_alt"
+    },
+
+    "ui": {
+      "background":          "bg",
+      "foreground":          "fg",
+      "selection":           "bg_selection",
+      "line_highlight":      "bg_line",
+      "cursor":              "thunder",
+      "cursor_text":         "fg",
+      "border":              "fg_subtle",
+      "shadow":              "#000000",
+      "accent":              "thunder",
+      "muted":               "fg_muted",
+
+      "sidebar_bg":          "bg",
+      "sidebar_fg":          "fg_muted",
+      "panel_bg":            "bg",
+      "panel_border":        "fg_subtle",
+      "statusbar_bg":        "bg",
+      "statusbar_fg":        "thunder_pale",
+      "titlebar_bg":         "bg",
+      "titlebar_fg":         "fg",
+      "tab_active_bg":       "bg",
+      "tab_active_fg":       "fg",
+      "tab_inactive_bg":     "bg",
+      "tab_inactive_fg":     "fg_subtle",
+      "tab_border":          "fg_subtle",
+
+      "input_bg":            "bg_alt",
+      "input_border":        "fg_subtle",
+      "input_placeholder":   "fg_subtle",
+      "button_bg":           "thunder_deep",
+      "button_fg":           "fg",
+      "button_hover_bg":     "thunder",
+
+      "scrollbar":           "fg_subtle",
+      "scrollbar_hover":     "fg_muted",
+
+      "link":                "thunder_bright",
+      "link_active":         "thunder",
+
+      "warning":             "thunder_deep",
+      "error":               "crimson",
+      "info":                "thunder_pale",
+      "success":             "peppermint",
+      "hint":                "fg_muted"
+    },
+
+    "ansi": {
+      "black":          "bg",
+      "red":            "crimson",
+      "green":          "peppermint",
+      "yellow":         "thunder_deep",
+      "blue":           "gray",
+      "magenta":        "thunder",
+      "cyan":           "peppermint",
+      "white":          "fg",
+      "bright_black":   "fg_subtle",
+      "bright_red":     "crimson_alt",
+      "bright_green":   "peppermint_alt",
+      "bright_yellow":  "thunder_bright",
+      "bright_blue":    "gray_alt",
+      "bright_magenta": "thunder_pale",
+      "bright_cyan":    "peppermint",
+      "bright_white":   "fg"
+    }
+  }
+}

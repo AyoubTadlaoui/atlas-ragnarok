@@ -1,0 +1,124 @@
+name: Publish editor extensions
+
+# Fans out a single v* tag to three marketplaces:
+#   - VS Code Marketplace      (publisher: AyoubTadlaoui)
+#   - Open VSX                  (mirrors the VSIX)
+#   - JetBrains Marketplace     (Atlas Ragnarok plugin)
+#
+# Jobs are independent — a missing secret skips that job cleanly without
+# failing the others. Zed, Helix, Sublime, and Ghostty go through
+# human-reviewed PRs to upstream repos and are NOT automated here.
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  vscode:
+    name: VS Code Marketplace + Open VSX
+    runs-on: ubuntu-latest
+    if: ${{ vars.PUBLISH_VSCODE != 'false' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install vsce + ovsx
+        run: npm install -g @vscode/vsce ovsx
+
+      - name: Sync version from git tag
+        working-directory: editors/vscode
+        run: |
+          # Strip leading 'v' from the tag — package.json wants 1.2.3, not v1.2.3
+          VERSION="${GITHUB_REF_NAME#v}"
+          # Only update if the tag actually starts with v and contains digits
+          if [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            npm version "$VERSION" --no-git-tag-version --allow-same-version
+          fi
+
+      - name: Package VSIX
+        working-directory: editors/vscode
+        run: vsce package --out atlas-ragnarok.vsix
+
+      - name: Publish to VS Code Marketplace
+        working-directory: editors/vscode
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+        run: |
+          if [ -z "$VSCE_PAT" ]; then
+            echo "::notice::VSCE_PAT not set — skipping VS Code Marketplace publish"
+          else
+            vsce publish --packagePath atlas-ragnarok.vsix -p "$VSCE_PAT"
+          fi
+
+      - name: Publish to Open VSX
+        working-directory: editors/vscode
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_PAT }}
+        run: |
+          if [ -z "$OVSX_PAT" ]; then
+            echo "::notice::OVSX_PAT not set — skipping Open VSX publish"
+          else
+            ovsx publish atlas-ragnarok.vsix -p "$OVSX_PAT"
+          fi
+
+      - name: Upload VSIX as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-ragnarok-vsix
+          path: editors/vscode/atlas-ragnarok.vsix
+          if-no-files-found: error
+
+  jetbrains:
+    name: JetBrains Marketplace
+    runs-on: ubuntu-latest
+    if: ${{ vars.PUBLISH_JETBRAINS != 'false' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Sync version from git tag
+        working-directory: editors/jetbrains
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          if [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            sed -i "s/^version = .*/version = \"$VERSION\"/" build.gradle.kts
+          fi
+
+      - name: Build plugin
+        working-directory: editors/jetbrains
+        run: ./gradlew buildPlugin --no-daemon
+
+      - name: Publish to JetBrains Marketplace
+        working-directory: editors/jetbrains
+        env:
+          JETBRAINS_MARKETPLACE_TOKEN: ${{ secrets.JETBRAINS_MARKETPLACE_TOKEN }}
+        run: |
+          if [ -z "$JETBRAINS_MARKETPLACE_TOKEN" ]; then
+            echo "::notice::JETBRAINS_MARKETPLACE_TOKEN not set — skipping publish"
+          else
+            ./gradlew publishPlugin --no-daemon
+          fi
+
+      - name: Upload plugin JAR as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-ragnarok-jetbrains
+          path: editors/jetbrains/build/distributions/*.zip
+          if-no-files-found: error
