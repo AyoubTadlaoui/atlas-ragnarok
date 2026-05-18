@@ -3,3 +3,8 @@
 *.swo
 .vscode/
 .idea/
+
+# Intermediate artifact from screenshots/gen.sh (vhs writes here, gif2webp
+# consumes, then gen.sh deletes it). Kept ignored as a safety net in case
+# gen.sh is interrupted.
+screenshots/_demo_raw.gif

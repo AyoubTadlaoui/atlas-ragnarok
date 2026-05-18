@@ -6,6 +6,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `screenshots/02-demo.webp` — animated WebP showing all four `scripts/demo.sh`
+  scenes (shader code under `bat`, `git log --graph`, fake `cargo` build with
+  warnings + errors + green tests, tree + palette listing) rendered in the
+  atlas-ragnarok palette. Embedded in the README under "The palette in motion".
+- `screenshots/02-demo.mp4` — same demo as H.264 MP4, kept as a supplementary
+  download link.
+- `screenshots/demo.tape` — [vhs](https://github.com/charmbracelet/vhs) script
+  that drives `scripts/demo.sh` through `ttyd` with the theme palette + Mac-style
+  window chrome + slate-blue margin (for visual contrast against GitHub's dark
+  page background).
+- `screenshots/gen.sh` — one-shot regeneration of the animated assets:
+  `brew install vhs ffmpeg webp bat tree` once, then `sh screenshots/gen.sh`
+  on any release. The static `01-hero-vignette.png` is left alone — it's
+  hand-captured from a real Ghostty session so the GLSL shader vignette is
+  visible (vhs / ttyd can't replicate that).
+
+### Changed
+
+- README "Capturing your own screenshots" section split into two paths
+  (static stills via `demo.sh`, animated demo via `gen.sh`), with explicit
+  notes on which method shows the shader and which doesn't.
+
 ---
 
 ## [1.1.0] — 2026-05-17

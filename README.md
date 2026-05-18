@@ -12,6 +12,12 @@
 > Tech-blue thunder above. Crimson fire below. Pure black through the middle.
 > The end-of-days terminal theme for [Ghostty](https://ghostty.org).
 
+### The palette in motion
+
+![atlas-ragnarok in action — code, git, build output, palette](screenshots/02-demo.webp)
+
+<sub>Also available as [MP4](screenshots/02-demo.mp4). Regenerate with `sh screenshots/gen.sh` (needs `vhs`, `ffmpeg`, `webp`, `bat`, `tree`).</sub>
+
 A Ghostty theme + custom shader inspired by the Norse apocalypse — where the
 sky cracks open with electric storm-blue and the world burns crimson beneath.
 The middle stays pure black. Text never gets tinted: a luminance mask keeps
@@ -171,10 +177,16 @@ float bottom_only = smoothstep(0.65, 0.85, uv.y);        // wider red band
 
 ## Capturing your own screenshots
 
-A small demo script ships in `scripts/demo.sh` — it walks through four
-screen-ready scenes (the shader source under `bat`, a colorful `git log
---graph`, a fake `cargo` build with errors + warnings + pass, and a
-`tree` of the repo). Run it and screenshot each scene:
+Two paths, depending on what you want:
+
+### Static stills (best for showing the shader vignette)
+
+The hero shot at the top — `screenshots/01-hero-vignette.png` — is captured
+manually from a real Ghostty session so the GLSL shader vignette renders.
+A small demo script ships in `scripts/demo.sh` to walk through four
+screen-ready scenes (`bat` of the shader, colorful `git log --graph`,
+a fake `cargo` build with errors + warnings + pass, and a `tree` of the
+repo). Run and screenshot each scene:
 
 ```bash
 # auto-advance every 4 seconds
@@ -185,6 +197,19 @@ bash scripts/demo.sh manual
 ```
 
 Drop captures into `screenshots/` and they're live in this README on push.
+
+### Animated demo (cross-platform palette showcase)
+
+`screenshots/02-demo.webp` (the looping GIF-like clip above) is generated
+by [vhs](https://github.com/charmbracelet/vhs) running the same demo
+script under a controlled palette. It can't replicate the shader (vhs
+runs in `ttyd`, not Ghostty), but it captures every color in the palette
+across realistic terminal content. Regenerate any time with:
+
+```bash
+brew install vhs ffmpeg webp bat tree    # one-time
+sh screenshots/gen.sh                    # produces 02-demo.webp + 02-demo.mp4
+```
 
 ---
 
