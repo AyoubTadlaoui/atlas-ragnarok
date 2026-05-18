@@ -6,6 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.2] — 2026-05-18
+
+### Fixed
+
+- JetBrains build: `build.gradle.kts` used the deprecated `version.set(...)`
+  syntax on `patchPluginXml`. With IntelliJ Platform Gradle Plugin 2.x the
+  version is set via `intellijPlatform.pluginConfiguration { version = ... }`.
+  Removed the `tasks { patchPluginXml { ... } }` block entirely.
+- `.github/workflows/publish-editors.yml`: publish steps now use
+  `continue-on-error: true` so a failing VS Code Marketplace publish (e.g.
+  invalid `VSCE_PAT`) doesn't gate the Open VSX publish that comes next.
+  Artifact-upload steps run with `if: always()` so the built VSIX / plugin
+  ZIP is downloadable from the workflow even when publishing fails.
+
 ## [1.2.1] — 2026-05-18
 
 ### Fixed
@@ -118,7 +132,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `LICENSE` — MIT
 - `README.md` — install, palette table, shader knobs, compatibility notes
 
-[Unreleased]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.2.1...HEAD
+[Unreleased]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.2.2...HEAD
+[1.2.2]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.0.0...v1.1.0

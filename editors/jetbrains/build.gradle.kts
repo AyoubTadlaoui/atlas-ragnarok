@@ -21,23 +21,14 @@ dependencies {
 
 intellijPlatform {
     pluginConfiguration {
+        version = project.version.toString()
         ideaVersion {
-            sinceBuild.set("241")
-            untilBuild.set(provider { null })
+            sinceBuild = "241"
+            untilBuild = provider { null }
         }
     }
 
     publishing {
-        token.set(System.getenv("JETBRAINS_MARKETPLACE_TOKEN") ?: "")
-    }
-}
-
-tasks {
-    wrapper {
-        gradleVersion = "8.10"
-    }
-
-    patchPluginXml {
-        version.set(project.version.toString())
+        token = System.getenv("JETBRAINS_MARKETPLACE_TOKEN") ?: ""
     }
 }

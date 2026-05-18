@@ -49,6 +49,9 @@ jobs:
         run: vsce package --out atlas-ragnarok.vsix
 
       - name: Publish to VS Code Marketplace
+        # Don't gate the whole job on this — Open VSX should still publish
+        # even if vsce errors (e.g. token invalid or marketplace down).
+        continue-on-error: true
         working-directory: editors/vscode
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
@@ -60,6 +63,9 @@ jobs:
           fi
 
       - name: Publish to Open VSX
+        # Runs even if VS Code Marketplace step failed.
+        if: always()
+        continue-on-error: true
         working-directory: editors/vscode
         env:
           OVSX_PAT: ${{ secrets.OVSX_PAT }}
@@ -71,11 +77,12 @@ jobs:
           fi
 
       - name: Upload VSIX as workflow artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: atlas-ragnarok-vsix
           path: editors/vscode/atlas-ragnarok.vsix
-          if-no-files-found: error
+          if-no-files-found: warn
 
   jetbrains:
     name: JetBrains Marketplace
@@ -111,6 +118,7 @@ jobs:
         run: gradle buildPlugin --no-daemon
 
       - name: Publish to JetBrains Marketplace
+        continue-on-error: true
         working-directory: editors/jetbrains
         env:
           JETBRAINS_MARKETPLACE_TOKEN: ${{ secrets.JETBRAINS_MARKETPLACE_TOKEN }}
@@ -122,8 +130,9 @@ jobs:
           fi
 
       - name: Upload plugin JAR as workflow artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: atlas-ragnarok-jetbrains
           path: editors/jetbrains/build/distributions/*.zip
-          if-no-files-found: error
+          if-no-files-found: warn
