@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.3] — 2026-05-18
+
+### Fixed
+
+- JetBrains build: added `instrumentationTools()` to the
+  `intellijPlatform` dependencies block. The `:instrumentCode` Gradle task
+  runs by default in IntelliJ Platform Gradle Plugin 2.x even for
+  theme-only plugins, and refuses to proceed without a Java compiler
+  dependency.
+
 ## [1.2.2] — 2026-05-18
 
 ### Fixed
@@ -132,7 +142,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `LICENSE` — MIT
 - `README.md` — install, palette table, shader knobs, compatibility notes
 
-[Unreleased]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.2.2...HEAD
+[Unreleased]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.2.3...HEAD
+[1.2.3]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.1.0...v1.2.0

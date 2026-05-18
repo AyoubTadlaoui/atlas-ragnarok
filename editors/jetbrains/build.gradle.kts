@@ -16,6 +16,10 @@ repositories {
 dependencies {
     intellijPlatform {
         intellijIdeaCommunity("2024.1")
+        // Required by :instrumentCode even for theme-only plugins with
+        // no Java/Kotlin source — the IntelliJ Platform Gradle Plugin 2.x
+        // runs that task by default.
+        instrumentationTools()
     }
 }
 
