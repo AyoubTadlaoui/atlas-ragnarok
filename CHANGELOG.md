@@ -6,6 +6,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Notable distribution events (2026-05-18, not version-bumping)
+
+- **Open VSX** — extension live as [`AyoubTadlaoui.atlas-ragnarok`](https://open-vsx.org/extension/AyoubTadlaoui/atlas-ragnarok)
+  at v1.2.3 (then v1.2.4 follows automatically via the publish workflow on tag).
+- **JetBrains Marketplace** — plugin [#31820](https://plugins.jetbrains.com/plugin/31820-atlas-ragnarok)
+  submitted, in moderation queue (vendor: Atlas Kaisar).
+- **Zed Extensions** — [zed-industries/extensions#6129](https://github.com/zed-industries/extensions/pull/6129)
+  open, all required checks green, CLA signed, awaiting maintainer merge.
+- **iTerm2-Color-Schemes** (→ Ghostty + ~30 terminals via submodule) —
+  [mbadolato/iTerm2-Color-Schemes#697](https://github.com/mbadolato/iTerm2-Color-Schemes/pull/697) open.
+- **Helix** — [helix-editor/helix#15754](https://github.com/helix-editor/helix/pull/15754) open.
+- **Sublime Text Package Control** — [sublimehq/package_control_channel#9421](https://github.com/sublimehq/package_control_channel/pull/9421)
+  open; first Sublime-specific tag [`st-1.0.0`](https://github.com/AyoubTadlaoui/atlas-ragnarok/releases/tag/st-1.0.0)
+  cut to feed the `tags: "st-"` filter.
+- **Open VSX namespace verification** — [EclipseFdn/open-vsx.org#10421](https://github.com/EclipseFdn/open-vsx.org/issues/10421)
+  filed (Case 3, namespace matches GitHub ID).
+
 ## [1.2.4] — 2026-05-18
 
 ### Fixed

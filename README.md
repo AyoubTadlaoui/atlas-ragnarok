@@ -223,18 +223,19 @@ sh screenshots/gen.sh                                          # 02-demo.{webp,m
 
 ## Code editors
 
-Atlas Ragnarok ships as a full color theme to every major editor — see
-[**EDITORS.md**](EDITORS.md) for the install + publish matrix.
+Atlas Ragnarok ships as a full color theme to every major editor.
+See [**EDITORS.md**](EDITORS.md) for the publish matrix + maintainer notes.
 
-| Editor | Install | Source |
+| Editor | Install | Marketplace status |
 |---|---|---|
-| **VS Code / Cursor / VSCodium** | `code --install-extension AyoubTadlaoui.atlas-ragnarok` | [`editors/vscode/`](editors/vscode/) |
-| **Zed** | `zed: install extension atlas-ragnarok` | [`editors/zed/`](editors/zed/) |
-| **JetBrains** (IntelliJ, PyCharm, GoLand, WebStorm, Rider, RustRover, CLion, RubyMine, PhpStorm, DataGrip, Android Studio) | Plugins → Marketplace → Atlas Ragnarok | [`editors/jetbrains/`](editors/jetbrains/) |
-| **Neovim** | `{ "AyoubTadlaoui/atlas-ragnarok", rtp = "editors/neovim" }` | [`editors/neovim/`](editors/neovim/) |
-| **Vim** | `Plug 'AyoubTadlaoui/atlas-ragnarok', { 'rtp': 'editors/vim' }` | [`editors/vim/`](editors/vim/) |
-| **Helix** | `cp editors/helix/atlas-ragnarok.toml ~/.config/helix/themes/` | [`editors/helix/`](editors/helix/) |
-| **Sublime Text 4** | Drop the `.sublime-color-scheme` into `Packages/User/` | [`editors/sublime/`](editors/sublime/) |
+| **VSCodium / Gitpod / Eclipse Theia** | `codium --install-extension AyoubTadlaoui.atlas-ragnarok` | ✓ Live on [Open VSX](https://open-vsx.org/extension/AyoubTadlaoui/atlas-ragnarok) |
+| **VS Code / Cursor** | Download VSIX from [Open VSX](https://open-vsx.org/extension/AyoubTadlaoui/atlas-ragnarok), then `code --install-extension <file>.vsix` | VS Code Marketplace listing pending |
+| **Zed** | `zed: install extension Atlas Ragnarok` (once merged) | ⏳ [zed-industries/extensions#6129](https://github.com/zed-industries/extensions/pull/6129) — green, awaiting maintainer merge |
+| **JetBrains** (IntelliJ, PyCharm, GoLand, WebStorm, Rider, RustRover, CLion, RubyMine, PhpStorm, DataGrip, Android Studio) | Plugins → Marketplace → Atlas Ragnarok (once approved) | ⏳ [Plugin #31820](https://plugins.jetbrains.com/plugin/31820-atlas-ragnarok) in moderation |
+| **Helix** | `cp editors/helix/atlas-ragnarok.toml ~/.config/helix/themes/` and `:theme atlas-ragnarok` | ⏳ Upstream PR [helix-editor/helix#15754](https://github.com/helix-editor/helix/pull/15754); works locally today |
+| **Sublime Text 4** | After merge: `Package Control → Install Package → Atlas Ragnarok` | ⏳ [sublimehq/package_control_channel#9421](https://github.com/sublimehq/package_control_channel/pull/9421) |
+| **Neovim** | `{ "AyoubTadlaoui/atlas-ragnarok", rtp = "editors/neovim" }` via lazy.nvim / packer | ✓ Install directly from this repo |
+| **Vim** | `Plug 'AyoubTadlaoui/atlas-ragnarok', { 'rtp': 'editors/vim' }` | ✓ Install directly from this repo |
 
 Full syntax + UI coverage in every port: comments, strings, numbers, keywords,
 functions, types, tags, variables, properties, decorators, markdown, diff,
@@ -243,7 +244,8 @@ where supported.
 
 ## Terminals
 
-- **Ghostty** ≥ 1.0 — full support (theme + shader)
+- **Ghostty** ≥ 1.0 — full support (theme + shader). Once [mbadolato/iTerm2-Color-Schemes#697](https://github.com/mbadolato/iTerm2-Color-Schemes/pull/697) merges, `theme = atlas-ragnarok` becomes a built-in option (no manual file copy). The shader still needs the one-time `cp` from this repo.
+- **Alacritty / Kitty / WezTerm / iTerm2 / Hyper / Konsole / Foot / Termite / Termux / +20 others** — same iTerm2-Color-Schemes PR auto-flows the palette to every terminal in that submodule on merge.
 - **Alacritty** — palette ported in [`themes/alacritty.toml`](themes/alacritty.toml).
   Import via `general.import = ["~/.config/alacritty/themes/atlas-ragnarok.toml"]`.
 - **Kitty** — palette ported in [`themes/kitty.conf`](themes/kitty.conf).

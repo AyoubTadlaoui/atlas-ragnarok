@@ -5,19 +5,20 @@ is the install / publish reference.
 
 ## Install matrix
 
-| Editor | One-liner install | Marketplace | Status |
+| Editor | Install | Marketplace | Status |
 |---|---|---|---|
-| **VS Code** | `code --install-extension AyoubTadlaoui.atlas-ragnarok` | [Visual Studio Marketplace](https://marketplace.visualstudio.com) | Ready to publish |
-| **Cursor** | Same VSIX, drop into Extensions | (uses VS Code Marketplace) | Free reach via VS Code |
-| **VSCodium** | `codium --install-extension AyoubTadlaoui.atlas-ragnarok` | [Open VSX](https://open-vsx.org) | Ready to publish |
-| **Zed** | `zed: install extension atlas-ragnarok` (or via UI) | [zed-industries/extensions](https://github.com/zed-industries/extensions) PR | PR needed |
-| **JetBrains** (IntelliJ, PyCharm, GoLand, WebStorm, Rider, RustRover, CLion, RubyMine, PhpStorm, DataGrip, Android Studio) | Plugins → Marketplace → Atlas Ragnarok | [plugins.jetbrains.com](https://plugins.jetbrains.com) | Ready to publish |
-| **Neovim** | `{ "AyoubTadlaoui/atlas-ragnarok", rtp = "editors/neovim" }` via lazy/packer | GitHub-installable | Ready to use |
-| **Vim** | `Plug 'AyoubTadlaoui/atlas-ragnarok', { 'rtp': 'editors/vim' }` | GitHub-installable | Ready to use |
-| **Helix** | `cp editors/helix/atlas-ragnarok.toml ~/.config/helix/themes/` | helix-editor/helix PR | PR optional |
-| **Sublime Text 4** | Drop `.sublime-color-scheme` into `Packages/User/` | [Package Control](https://packagecontrol.io) | Ready to submit |
-| **Ghostty** | `theme = atlas-ragnarok` after submodule PR lands | [iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes) PR | PR needed |
-| Alacritty, Kitty, WezTerm, iTerm2, Windows Terminal | See `themes/` directory at repo root | repo download | Ready to use |
+| **VSCodium / Gitpod / Eclipse Theia** | `codium --install-extension AyoubTadlaoui.atlas-ragnarok` | [Open VSX](https://open-vsx.org/extension/AyoubTadlaoui/atlas-ragnarok) | ✅ **Live** (v1.2.3, since 2026-05-18) |
+| **VS Code / Cursor** | Download VSIX from Open VSX, then `code --install-extension <file>.vsix` | [Visual Studio Marketplace](https://marketplace.visualstudio.com) | ⏸ Pending — needs Azure DevOps PAT (`VSCE_PAT` secret) |
+| **Zed** | `zed: install extension Atlas Ragnarok` (post-merge) | [zed-industries/extensions](https://github.com/zed-industries/extensions) | ⏳ [PR #6129](https://github.com/zed-industries/extensions/pull/6129) — all checks green, awaiting maintainer merge |
+| **JetBrains** (IntelliJ, PyCharm, GoLand, WebStorm, Rider, RustRover, CLion, RubyMine, PhpStorm, DataGrip, Android Studio) | Plugins → Marketplace → Atlas Ragnarok (post-approval) | [plugins.jetbrains.com](https://plugins.jetbrains.com) | ⏳ [Plugin #31820](https://plugins.jetbrains.com/plugin/31820-atlas-ragnarok) — in moderation (1–2 business days) |
+| **Helix** | `cp editors/helix/atlas-ragnarok.toml ~/.config/helix/themes/` and `:theme atlas-ragnarok` | [helix-editor/helix](https://github.com/helix-editor/helix) | ⏳ [PR #15754](https://github.com/helix-editor/helix/pull/15754) for upstream bundling; works locally now |
+| **Sublime Text 4** | `Package Control → Install Package → Atlas Ragnarok` (post-merge) | [Package Control](https://packagecontrol.io) | ⏳ [PR #9421](https://github.com/sublimehq/package_control_channel/pull/9421) on `sublimehq/package_control_channel` |
+| **Ghostty + ~30 terminals** | `theme = atlas-ragnarok` (post-merge); the shader still needs the one-time `cp` from this repo | [iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes) | ⏳ [PR #697](https://github.com/mbadolato/iTerm2-Color-Schemes/pull/697) — flows to Ghostty, Alacritty, Kitty, WezTerm, Hyper, Konsole, Foot, Termite, Termux, +20 others |
+| **Neovim** | `{ "AyoubTadlaoui/atlas-ragnarok", rtp = "editors/neovim" }` (lazy.nvim / packer) | GitHub-installable | ✅ Works today directly from this repo |
+| **Vim** | `Plug 'AyoubTadlaoui/atlas-ragnarok', { 'rtp': 'editors/vim' }` | GitHub-installable | ✅ Works today directly from this repo |
+| Alacritty, Kitty, WezTerm, iTerm2, Windows Terminal (manual) | See `themes/` directory at repo root | repo download | ✅ Works today directly from this repo |
+
+Open VSX namespace verification (cosmetic "Verified" badge): [EclipseFdn/open-vsx.org#10421](https://github.com/EclipseFdn/open-vsx.org/issues/10421) — awaiting Eclipse Foundation review (3–7 business days).
 
 ## Repository layout
 
