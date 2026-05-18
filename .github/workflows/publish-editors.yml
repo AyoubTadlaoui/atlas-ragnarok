@@ -92,6 +92,8 @@ jobs:
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.10'
 
       - name: Sync version from git tag
         working-directory: editors/jetbrains
@@ -103,7 +105,10 @@ jobs:
 
       - name: Build plugin
         working-directory: editors/jetbrains
-        run: ./gradlew buildPlugin --no-daemon
+        # `gradle` (no ./gradlew) — setup-gradle put it on PATH. The wrapper
+        # scripts (gradlew, gradle/wrapper/) are intentionally not committed:
+        # they're a 50KB pile of binary noise and CI doesn't need them.
+        run: gradle buildPlugin --no-daemon
 
       - name: Publish to JetBrains Marketplace
         working-directory: editors/jetbrains
@@ -113,7 +118,7 @@ jobs:
           if [ -z "$JETBRAINS_MARKETPLACE_TOKEN" ]; then
             echo "::notice::JETBRAINS_MARKETPLACE_TOKEN not set — skipping publish"
           else
-            ./gradlew publishPlugin --no-daemon
+            gradle publishPlugin --no-daemon
           fi
 
       - name: Upload plugin JAR as workflow artifact

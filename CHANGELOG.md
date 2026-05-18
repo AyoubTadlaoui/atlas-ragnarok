@@ -6,6 +6,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.1] — 2026-05-18
+
+### Fixed
+
+- Removed dangling `icon.png` reference from `editors/vscode/package.json`
+  that caused `vsce package` to fail in the publish workflow's first run.
+- Added `LICENSE` files to `editors/vscode/` and `editors/jetbrains/` so
+  the marketplace artifacts ship with a proper license alongside them
+  (also silences `vsce`'s missing-LICENSE warning).
+- Switched the JetBrains job in `.github/workflows/publish-editors.yml`
+  from `./gradlew` (uncommitted wrapper) to `gradle` directly via
+  `gradle/actions/setup-gradle@v4`'s `gradle-version: '8.10'`. The wrapper
+  scripts are intentionally not committed — CI does not need a 50KB
+  binary blob.
+
 ## [1.2.0] — 2026-05-18
 
 ### Added
@@ -103,7 +118,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `LICENSE` — MIT
 - `README.md` — install, palette table, shader knobs, compatibility notes
 
-[Unreleased]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.2.1...HEAD
+[1.2.1]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/AyoubTadlaoui/atlas-ragnarok/releases/tag/v1.0.0
