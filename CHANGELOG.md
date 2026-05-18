@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.4] — 2026-05-18
+
+### Fixed
+
+- Added `LICENSE` to `editors/zed/` so Zed's extension validator finds
+  one at the path it actually checks (submodulePath + the `path` field
+  in `extensions.toml`, i.e. `extensions/atlas-ragnarok/editors/zed/`).
+  Previously only the repo-root `LICENSE` existed; the validator
+  doesn't walk up. Required to unblock
+  [`zed-industries/extensions#6129`](https://github.com/zed-industries/extensions/pull/6129).
+
 ## [1.2.3] — 2026-05-18
 
 ### Fixed
@@ -142,7 +153,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `LICENSE` — MIT
 - `README.md` — install, palette table, shader knobs, compatibility notes
 
-[Unreleased]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.2.3...HEAD
+[Unreleased]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.2.4...HEAD
+[1.2.4]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.2.3...v1.2.4
 [1.2.3]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.2.2...v1.2.3
 [1.2.2]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/AyoubTadlaoui/atlas-ragnarok/compare/v1.2.0...v1.2.1
