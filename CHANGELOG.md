@@ -9,20 +9,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - `screenshots/02-demo.webp` — animated WebP showing all four `scripts/demo.sh`
-  scenes (shader code under `bat`, `git log --graph`, fake `cargo` build with
+  scenes (shader code under `bat`, `git log --graph`, stubbed `cargo` build with
   warnings + errors + green tests, tree + palette listing) rendered in the
   atlas-ragnarok palette. Embedded in the README under "The palette in motion".
 - `screenshots/02-demo.mp4` — same demo as H.264 MP4, kept as a supplementary
   download link.
 - `screenshots/demo.tape` — [vhs](https://github.com/charmbracelet/vhs) script
-  that drives `scripts/demo.sh` through `ttyd` with the theme palette + Mac-style
-  window chrome + slate-blue margin (for visual contrast against GitHub's dark
-  page background).
+  that drives `scripts/demo.sh` through `ttyd` with the theme palette,
+  edge-to-edge (no window chrome) so the post-process vignette overlay sits
+  flush over the canvas.
+- `screenshots/_shader.py` — NumPy+PIL reimplementation of
+  `atlas-ragnarok.glsl`, pixel-exact. Applies the full shader equation
+  to every captured frame: same `thunder_blue = vec3(0.055, 0.115, 0.320)`
+  and `red_tint = vec3(0.220, 0.014, 0.028)` colors, same
+  `smoothstep(0.18, 1.0, dist)` radial vignette, same
+  `smoothstep(0.65, 0.85, …)` top/bottom bands, and crucially the same
+  `bg_mask = 1 - smoothstep(0.04, 0.18, lum)` luminance mask — so text
+  pixels never get tinted, matching the live GPU shader's behavior.
+  Replaces the earlier static-overlay approach which couldn't honor the
+  luminance mask and washed out text in the tinted bands.
 - `screenshots/gen.sh` — one-shot regeneration of the animated assets:
-  `brew install vhs ffmpeg webp bat tree` once, then `sh screenshots/gen.sh`
-  on any release. The static `01-hero-vignette.png` is left alone — it's
-  hand-captured from a real Ghostty session so the GLSL shader vignette is
-  visible (vhs / ttyd can't replicate that).
+  `brew install vhs ffmpeg webp bat tree` +
+  `pip3 install --user --break-system-packages pillow numpy` once, then
+  `sh screenshots/gen.sh` on any release. The static
+  `01-hero-vignette.png` is left alone — it's hand-captured from a real
+  Ghostty session so the live GPU shader is the source.
 
 ### Changed
 

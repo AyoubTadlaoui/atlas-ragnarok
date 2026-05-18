@@ -12,15 +12,12 @@ Output screenshots/_demo_raw.gif
 
 Set Shell           "bash"
 Set FontSize        14
-Set Width           1400
-Set Height          760
-Set Padding         24
-# Card framing — slate-blue margin + window chrome.
-Set Margin          24
-Set MarginFill      "#0F172A"
-Set BorderRadius    10
-Set WindowBar       Colorful
-Set WindowBarSize   36
+Set Width           1300
+Set Height          700
+Set Padding         28
+# No window chrome / margin — the demo should look like a real Ghostty
+# session edge-to-edge so the shader-vignette overlay (added by gen.sh
+# in post) sits flush over the whole canvas, just like the static hero.
 # atlas-ragnarok — the very theme this demo is showcasing.
 Set Theme           { "name": "atlas-ragnarok", "background": "#000000", "foreground": "#FFFFFF", "cursor": "#3B82F6", "selection": "#1E3A5F", "black": "#000000", "red": "#FF8080", "green": "#99FFE4", "yellow": "#2563EB", "blue": "#A0A0A0", "purple": "#3B82F6", "cyan": "#99FFE4", "white": "#FFFFFF", "brightBlack": "#505050", "brightRed": "#FF9999", "brightGreen": "#B3FFE4", "brightYellow": "#60A5FA", "brightBlue": "#B0B0B0", "brightPurple": "#93C5FD", "brightCyan": "#99FFE4", "brightWhite": "#FFFFFF" }
 Set TypingSpeed     15ms
