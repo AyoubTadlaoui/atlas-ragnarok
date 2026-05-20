@@ -21,6 +21,7 @@
 /.github/                   export-ignore
 /.gitignore                 export-ignore
 /.gitattributes             export-ignore
+/backgrounds/               export-ignore
 /docs/                      export-ignore
 /screenshots/               export-ignore
 /scripts/                   export-ignore
