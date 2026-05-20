@@ -1,0 +1,33 @@
+# Package Control installs the Sublime color scheme from the `st-*` tag's
+# git-archive tarball. Without the rules below, installing the *color scheme*
+# would drop this entire multi-editor repo into the user's Packages/ folder.
+# `export-ignore` trims the archive down to just the Sublime color scheme plus
+# README / LICENSE / CHANGELOG.
+#
+# Scope: this affects `git archive` only (i.e. Package Control). It does NOT
+# touch clones, the `v*` marketplace publishes, or the Zed submodule pointer.
+
+# --- other editor integrations (keep only editors/sublime) ---
+/editors/ghostty-upstream/  export-ignore
+/editors/helix/             export-ignore
+/editors/jetbrains/         export-ignore
+/editors/neovim/            export-ignore
+/editors/vim/               export-ignore
+/editors/vscode/            export-ignore
+/editors/zed/               export-ignore
+/editors/palette.json       export-ignore
+
+# --- repo tooling, source art, and meta (not needed in a color scheme) ---
+/.github/                   export-ignore
+/.gitignore                 export-ignore
+/.gitattributes             export-ignore
+/docs/                      export-ignore
+/screenshots/               export-ignore
+/scripts/                   export-ignore
+/themes/                    export-ignore
+/atlas-ragnarok.conf        export-ignore
+/atlas-ragnarok.glsl        export-ignore
+/EDITORS.md                 export-ignore
+/CODE_OF_CONDUCT.md         export-ignore
+/CONTRIBUTING.md            export-ignore
+/SECURITY.md                export-ignore
