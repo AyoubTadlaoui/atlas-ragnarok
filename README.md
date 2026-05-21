@@ -32,6 +32,11 @@ of pure-black `#000000`.
 
 ## Install
 
+> **The steps below install the full experience** — the palette **plus** the
+> storm-fire vignette shader (the look in the screenshots above). Just want the
+> colors, or waiting for the theme to ship inside Ghostty itself? Jump to
+> [Colors-only (bundled)](#colors-only-bundled).
+
 <details open>
 <summary><b>macOS</b></summary>
 
@@ -132,6 +137,40 @@ echo 'config-file = ~/.config/ghostty/themes/atlas-ragnarok.conf' >> "$CONFIG"
 ```
 
 </details>
+
+### Colors-only (bundled)
+
+Once [iTerm2-Color-Schemes PR #697](https://github.com/mbadolato/iTerm2-Color-Schemes/pull/697)
+ships in a Ghostty release, the **palette** is bundled with Ghostty itself — no
+clone, no files, one line:
+
+```ini
+theme = "Atlas Ragnarok"
+```
+
+This gives you the colors on pure black, but **not** the storm-fire vignette.
+Ghostty's bundled themes are generated from
+[iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes), which
+carries palette data only — a GPU shader can't ride that channel. To layer the
+glow on top, drop the shader in once and reference it alongside the theme:
+
+```bash
+mkdir -p ~/.config/ghostty/shaders
+curl -fsSL https://raw.githubusercontent.com/AyoubTadlaoui/atlas-ragnarok/main/atlas-ragnarok.glsl \
+  -o ~/.config/ghostty/shaders/atlas-ragnarok.glsl
+```
+
+```ini
+# in your Ghostty config:
+theme         = "Atlas Ragnarok"
+custom-shader = ~/.config/ghostty/shaders/atlas-ragnarok.glsl
+```
+
+> The bundled name is `"Atlas Ragnarok"` — quoted, with a space — because Ghostty
+> names bundled themes verbatim from the iTerm2 scheme file, like
+> `"Catppuccin Mocha"`. Run `ghostty +list-themes` to confirm once your Ghostty
+> version includes it. For the pixel-exact setup (padding, opacity), use the full
+> [Install](#install) above instead.
 
 ---
 
