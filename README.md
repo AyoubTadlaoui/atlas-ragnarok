@@ -133,6 +133,38 @@ echo 'config-file = ~/.config/ghostty/themes/atlas-ragnarok.conf' >> "$CONFIG"
 
 </details>
 
+<details>
+<summary><b>Shell: themed <code>ls</code> colors (optional)</b></summary>
+
+The palette themes everything that emits ANSI. To carry it into `ls` file
+listings (directories thunder-blue, executables and archives crimson, symlinks
+and media peppermint, configs blue, docs gray, broken links flagged), add the
+`LS_COLORS` integration.
+
+It needs GNU coreutils `ls`. Linux ships that as `ls`. macOS default `ls` is
+BSD and ignores `LS_COLORS`, so install coreutils, which provides `gls`:
+
+```bash
+brew install coreutils   # macOS only
+```
+
+Then install the colors:
+
+```bash
+mkdir -p ~/.config/atlas-ragnarok
+curl -fsSL https://raw.githubusercontent.com/AyoubTadlaoui/atlas-ragnarok/main/shell/ls-colors.zsh \
+  -o ~/.config/atlas-ragnarok/ls-colors.zsh
+
+grep -qF 'atlas-ragnarok/ls-colors.zsh' ~/.zshrc 2>/dev/null || \
+  printf '\n# atlas-ragnarok ls colors\n[ -f ~/.config/atlas-ragnarok/ls-colors.zsh ] && source ~/.config/atlas-ragnarok/ls-colors.zsh\n' >> ~/.zshrc
+```
+
+Open a new shell, then `ls`. Colors are 24-bit truecolor, so they match the
+palette exactly. The script picks `gls` on macOS, native GNU `ls` on Linux, and
+does nothing if neither is present, so it is safe to source anywhere.
+
+</details>
+
 ---
 
 ## Palette
