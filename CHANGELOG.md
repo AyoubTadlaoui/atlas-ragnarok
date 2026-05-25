@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `shell/ls-colors.zsh`: themed `LS_COLORS` so GNU `ls`/`gls` listings match the
+  palette (directories thunder-blue, executables and archives crimson, symlinks
+  and media peppermint, configs blue, docs gray, broken links and setuid
+  binaries flagged). 24-bit truecolor straight from `editors/palette.json`;
+  picks `gls` on macOS, native GNU `ls` on Linux, no-ops otherwise. Install
+  steps in the README.
+
 ## [1.2.4] — 2026-05-18
 
 ### Fixed
